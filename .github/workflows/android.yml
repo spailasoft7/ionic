@@ -41,7 +41,9 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
+          export JAVA_HOME=$JAVA_HOME_17_X64
           ./gradlew assembleRelease bundleRelease \
+            -Dorg.gradle.java.home=$JAVA_HOME \
             -Pandroid.injected.signing.store.file=app/demo-release.keystore \
             -Pandroid.injected.signing.store.password=$ANDROID_KEYSTORE_PASSWORD \
             -Pandroid.injected.signing.key.alias=$ANDROID_KEYSTORE_ALIAS \
